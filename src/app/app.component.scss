@@ -1,0 +1,28 @@
+textarea {
+  height: 200px;
+  min-height: 5rem;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0.5rem 0.8rem 1rem;
+  position: relative;
+  resize: vertical;
+  width: 100%;
+}
+
+.content {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: #f1f1f1;
+  min-height: 20px;
+  max-height: 10rem;
+  overflow: auto;
+}
+
+// .container {
+//   max-width: 720px;
+//   margin-right: auto;
+//   margin-left: auto;
+// }
