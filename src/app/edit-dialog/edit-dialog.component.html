@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Edit Formula</h2>
+<mat-dialog-content class="mat-typography">
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let tag of updatedData" cdkDrag>
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      {{ tag.Name }}
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="SaveFormula()"
+  >
+    Install
+  </button>
+</mat-dialog-actions>

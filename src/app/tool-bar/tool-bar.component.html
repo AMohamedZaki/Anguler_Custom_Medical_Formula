@@ -27,6 +27,16 @@
           <mat-icon matTooltip="test">build</mat-icon>
         </button>
       </div>
+      <div class="example-button-container" *ngIf="formulaList && formulaList.length > 0">
+        <button
+          matTooltip="Edit"
+          mat-flat-button
+          aria-label="Example icon button with a menu icon"
+          (click)="EditFormula()"
+        >
+          <mat-icon>person_pin</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
 </section>

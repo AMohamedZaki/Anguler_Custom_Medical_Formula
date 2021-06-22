@@ -10,9 +10,10 @@ import { DemoMaterialModule } from './material-module';
 import { BracketService } from './service/bracket.service';
 import { SafeHtml } from './pipe/safeByHtml.pipe';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, ToolBarComponent, SafeHtml, ButtonsComponent],
+  declarations: [AppComponent, ToolBarComponent, SafeHtml, ButtonsComponent, EditDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

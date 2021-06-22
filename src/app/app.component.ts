@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CloneObject, getTags, getTypes } from './helper/helper';
 import { Tag } from './model/tag';
@@ -13,6 +14,7 @@ import { BracketService } from './service/bracket.service';
 export class AppComponent implements OnInit {
   title = 'editor';
   textAreaText: SafeHtml;
+  paragraphText: SafeHtml;
   tags: Tag[] = [];
   tagsByType: { id: [string]; tags: Tag[] } = {} as {
     id: [string];
@@ -20,6 +22,10 @@ export class AppComponent implements OnInit {
   };
   keys: string[] = [];
   tagTypeEnum = TagTypeEnum;
+
+  formulaList: Tag[] = [];
+  undoList: Tag[] = [];
+  redoList: Tag[] = [];
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -37,10 +43,10 @@ export class AppComponent implements OnInit {
     this.keys = Object.keys(this.tagsByType);
   }
 
-  blur(event: any) {
-    let textAreaText = CloneObject(event.value);
-    textAreaText = this.bracketService.formatText(textAreaText);
-    this.textAreaText = this.sanitizer.bypassSecurityTrustHtml(textAreaText);
+  handleText() {
+    const paragraphText = CloneObject(this.textAreaText);
+    this.paragraphText = this.bracketService.formatText(paragraphText);
+    // this.textAreaText = this.sanitizer.bypassSecurityTrustHtml(textAreaText);
   }
 
   groupByTagType(tags: Tag[]) {
@@ -61,6 +67,15 @@ export class AppComponent implements OnInit {
   }
 
   AppendText(event: Tag) {
-    console.log(event);
+    this.formulaList.push(event);
+    this.textAreaText = this.formulaList.map((it) => it.FieldName).join('');
+    this.handleText();
+  }
+
+  setTextArea(event: Tag[]) {
+    if (event && event.length > 0) {
+      this.textAreaText = event.map((it) => it.FieldName).join('');
+      this.handleText();
+    }
   }
 }
