@@ -7,20 +7,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToolBarComponent } from './tool-bar/tool-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './material-module';
+import { BracketService } from './service/bracket.service';
+import { SafeHtml } from './pipe/safeByHtml.pipe';
+import { ButtonsComponent } from './buttons/buttons.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ToolBarComponent
-  ],
+  declarations: [AppComponent, ToolBarComponent, SafeHtml, ButtonsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     DemoMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [BracketService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

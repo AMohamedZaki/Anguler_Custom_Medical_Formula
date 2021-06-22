@@ -2,24 +2,48 @@
   <div class="col-4"></div>
   <div class="col-4">
     <app-tool-bar></app-tool-bar>
-  
   </div>
   <div class="col-4"></div>
 </div>
 
 <div class="row">
-  <div class="col-4"></div>
+  <div class="col-4">
+    <div class="card" style="width: 100%" *ngFor="let key of keys">
+      <div class="card-body">
+        <h5 class="card-title">{{ getTypeNameById(key) }}</h5>
+        <div class="example-button-row">
+          <div class="example-flex-container">
+            <div class="example-button-container">
+              <ng-template ngFor let-tag [ngForOf]="tagsByType[key]">
+                  <app-buttons (onTagClick)="AppendText($event)" [tag]="tag"></app-buttons>
+                </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="col-4">
     <textarea
+      [innerHTML]="textAreaText"
       rows="5"
       name="text_body"
       tabindex="0"
       translate="no"
       spellcheck="false"
+      #formatText
+      (blur)="blur(formatText)"
     >
     </textarea>
 
-    <p class="content"></p>
+    <p
+      class="content"
+      [innerHTML]="textAreaText"
+      style="height: 200px; overflow-y: scroll"
+    ></p>
   </div>
-  <div class="col-4"></div>
+  <div class="col-4">
+    {{ textAreaText }}
+  </div>
 </div>
