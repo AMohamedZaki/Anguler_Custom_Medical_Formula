@@ -9,7 +9,7 @@ import { Tag } from '../model/tag';
   styleUrls: ['./tool-bar.component.scss'],
 })
 export class ToolBarComponent implements OnInit {
-  
+
   @Input() formulaList: Tag[] = [];
   @Output() OnFormulaSaved = new EventEmitter();
   constructor(public dialog: MatDialog) { }

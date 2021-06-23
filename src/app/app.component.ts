@@ -43,7 +43,8 @@ export class AppComponent implements OnInit {
     this.keys = Object.keys(this.tagsByType);
   }
 
-  handleText() {
+  handleText(handleText: string) {
+    console.log(handleText);
     const paragraphText = CloneObject(this.textAreaText);
     this.paragraphText = this.bracketService.formatText(paragraphText);
     // this.textAreaText = this.sanitizer.bypassSecurityTrustHtml(textAreaText);
@@ -69,13 +70,13 @@ export class AppComponent implements OnInit {
   AppendText(event: Tag) {
     this.formulaList.push(event);
     this.textAreaText = this.formulaList.map((it) => it.FieldName).join('');
-    this.handleText();
+    // this.handleText();
   }
 
   setTextArea(event: Tag[]) {
     if (event && event.length > 0) {
       this.textAreaText = event.map((it) => it.FieldName).join('');
-      this.handleText();
+      // this.handleText();
     }
   }
 }

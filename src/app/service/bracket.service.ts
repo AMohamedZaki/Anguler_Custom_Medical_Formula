@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { CloneObject } from '../helper/helper';
 import { htmlTages as htmlTags } from '../helper/htmlTages';
 import { Colors } from '../model/colors';
@@ -18,8 +17,7 @@ export class BracketService {
   };
 
   private htmlText: string;
-  private simpleText: string;
-
+  private colors = Colors;
   constructor() {}
 
   isValidOpenClosedBrackets(text: string) {
@@ -45,7 +43,10 @@ export class BracketService {
   formatText(text: string): string {
     this.htmlText = CloneObject(text);
     this.allBrackets.forEach((element) => {
-      if (this.htmlText.indexOf(element) > -1 && this.openers.includes(element)) {
+      if (
+        this.htmlText.indexOf(element) > -1 &&
+        this.openers.includes(element)
+      ) {
         this.htmlText = this.replaceBrackets(this.htmlText, element);
       }
     });
@@ -56,8 +57,6 @@ export class BracketService {
     return text.split(bracket).join(this.addGreenSpan(bracket));
   }
   private addGreenSpan(bracket: string, color: Colors = Colors.green) {
-    return `${htmlTags.openSpanTag(color)}${bracket}${htmlTags.closeSpan}`;
+    return `${htmlTags.openSpanTag(this.colors[color])}${bracket}${htmlTags.closeSpan}`;
   }
-
-  
 }

@@ -1,18 +1,16 @@
-import { Colors } from "../model/colors";
+import { Colors } from '../model/colors';
 
 export class htmlTages {
+  static closeSpan = `</span>`;
 
-    static closeSpan: string = `</span>`
-    
-    static openBlockquote: string = `<blockquote>`;
-    static closeBlockquote: string = `</blockquote>`;
-    
-    static openParagraph: string = `<p>`;
-    static closeParagraph: string = `</p>`;
-    
-    
-    static openSpanTag(color:Colors = Colors.green) {
-        return `<span style='color: ${color}; font-size: larger;'>`;
-    }
+  static openBlockquote = `<blockquote>`;
+  static closeBlockquote = `</blockquote>`;
 
+  static openParagraph = `<p>`;
+  static closeParagraph = `</p>`;
+
+  static openSpanTag(color: string) {
+    const _color = color ? `color: ${color};` : '';
+    return `<span style=${_color}font-size: larger;>`;
+  }
 }
