@@ -24,7 +24,7 @@ export class EditDialogComponent implements OnInit {
   }
 
   SaveFormula() {
-    this._snackBar.open('Data Saved Successfully', '', { duration: 3000 });
+    this._snackBar.open('Data Saved Successfully', '', { duration: 2000 });
     this.dialogRef.close(this.updatedData);
   }
 
@@ -34,5 +34,9 @@ export class EditDialogComponent implements OnInit {
 
   drop(event: CdkDragDrop<Tag[]>) {
     moveItemInArray(this.updatedData, event.previousIndex, event.currentIndex);
+  }
+
+  removeTag(tag) {
+    this.updatedData = this.updatedData.filter(_tag => _tag.id != tag.id);
   }
 }

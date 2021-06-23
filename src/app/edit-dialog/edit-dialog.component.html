@@ -4,6 +4,15 @@
     <div class="example-box" *ngFor="let tag of updatedData" cdkDrag>
       <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
       {{ tag.Name }}
+      <button
+      matTooltip="Delete"
+      mat-flat-button
+      style="color: red;"
+      (click)="removeTag(tag)"
+      aria-label="Example icon button with a menu icon"
+    >
+      <mat-icon>delete icon</mat-icon>
+    </button>
     </div>
   </div>
 </mat-dialog-content>
