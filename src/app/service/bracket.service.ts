@@ -19,7 +19,7 @@ export class BracketService {
 
   private htmlText: string;
   private simpleText: string;
-
+  colors = Colors;
   constructor() {}
 
   isValidOpenClosedBrackets(text: string) {
@@ -45,7 +45,10 @@ export class BracketService {
   formatText(text: string): string {
     this.htmlText = CloneObject(text);
     this.allBrackets.forEach((element) => {
-      if (this.htmlText.indexOf(element) > -1 && this.openers.includes(element)) {
+      if (
+        this.htmlText.indexOf(element) > -1 &&
+        this.allBrackets.includes(element)
+      ) {
         this.htmlText = this.replaceBrackets(this.htmlText, element);
       }
     });
@@ -53,9 +56,16 @@ export class BracketService {
   }
 
   private replaceBrackets(text: string, bracket: string) {
-    return text.split(bracket).join(this.addGreenSpan(bracket));
+    return text.split(bracket).join(this.addSpan(bracket, true));
   }
-  private addGreenSpan(bracket: string, color: Colors = Colors.green) {
-    return `${htmlTags.openSpanTag(color)}${bracket}${htmlTags.closeSpan}`;
+  private addSpan(
+    bracket: string,
+    newLine = false,
+    color: Colors = Colors.green
+  ) {
+    const newLineBr = newLine ? '<br /> &nbsp;&nbsp;' : '';
+    return `${newLineBr}${htmlTags.openSpanTag(
+      this.colors[color].toString()
+    )}${bracket}${htmlTags.closeSpan}${newLineBr}`;
   }
 }
