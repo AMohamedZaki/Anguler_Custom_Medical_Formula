@@ -1,6 +1,6 @@
 import { Colors } from '../model/colors';
 import { Tag } from '../model/tag';
-import { TagType, TagTypeEnum } from '../model/tagType';
+import { TagTypeEnum } from '../model/tagType';
 
 export function CloneObject(object: any) {
   return JSON.parse(JSON.stringify(object));
@@ -12,14 +12,14 @@ export function IsObject(object: any) {
 
 export function getTypes() {
   const data = [
-    { color: Colors.red, type: TagTypeEnum.clinicalMethods, id: 1 },
+    { color: Colors.green, type: TagTypeEnum.clinicalMethods, id: 1 },
     { color: Colors.red, type: TagTypeEnum.condition, id: 2 },
-    { color: Colors.red, type: TagTypeEnum.customService, id: 3 }, // for LDM Service
-    { color: Colors.red, type: TagTypeEnum.logicalOperators, id: 4 },
-    { color: Colors.red, type: TagTypeEnum.loginType, id: 5 },
-    { color: Colors.red, type: TagTypeEnum.mathMethods, id: 6 },
-    { color: Colors.red, type: TagTypeEnum.numbers, id: 7 },
-    { color: Colors.red, type: TagTypeEnum.signs, id: 8 },
+    { color: Colors.black, type: TagTypeEnum.customService, id: 3 }, // for LDM Service
+    { color: Colors.black, type: TagTypeEnum.logicalOperators, id: 4 },
+    { color: Colors.black, type: TagTypeEnum.loginType, id: 5 },
+    { color: Colors.blue, type: TagTypeEnum.mathMethods, id: 6 },
+    { color: Colors.black, type: TagTypeEnum.numbers, id: 7 },
+    { color: Colors.green, type: TagTypeEnum.signs, id: 8 },
   ];
   return data;
 }

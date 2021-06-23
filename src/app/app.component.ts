@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   title = 'editor';
   textAreaText: SafeHtml;
   paragraphText: SafeHtml;
+  innerParagraphText = '';
   tags: Tag[] = [];
   tagsByType: { id: [string]; tags: Tag[] } = {} as {
     id: [string];
@@ -43,11 +44,19 @@ export class AppComponent implements OnInit {
     this.keys = Object.keys(this.tagsByType);
   }
 
-  handleText(handleText: string) {
-    console.log(handleText);
-    const paragraphText = CloneObject(this.textAreaText);
-    this.paragraphText = this.bracketService.formatText(paragraphText);
-    // this.textAreaText = this.sanitizer.bypassSecurityTrustHtml(textAreaText);
+  // handleText(handleText: string) {
+  //   let paragraphText = CloneObject(this.textAreaText);
+  //   paragraphText = this.bracketService.formatText(paragraphText);
+  //   this.paragraphText = this.sanitizer.bypassSecurityTrustHtml(paragraphText);
+  // }
+
+  handleText(tag: Tag) {
+    let innerParagraphText = this.innerParagraphText
+      ? CloneObject(this.innerParagraphText)
+      : '';
+    const _type = this.getType(tag.TypeId);
+    this.innerParagraphText = innerParagraphText += this.bracketService.formatTag(tag, _type);
+    this.paragraphText = this.sanitizer.bypassSecurityTrustHtml(innerParagraphText);
   }
 
   groupByTagType(tags: Tag[]) {
@@ -70,13 +79,16 @@ export class AppComponent implements OnInit {
   AppendText(event: Tag) {
     this.formulaList.push(event);
     this.textAreaText = this.formulaList.map((it) => it.FieldName).join('');
-    // this.handleText();
+    this.handleText(event);
   }
 
-  setTextArea(event: Tag[]) {
-    if (event && event.length > 0) {
-      this.textAreaText = event.map((it) => it.FieldName).join('');
-      // this.handleText();
+  setTextArea(tags: Tag[]) {
+    if (tags && tags.length > 0) {
+      this.textAreaText = tags.map((it) => it.FieldName).join('');
+      this.innerParagraphText = '';
+      tags.forEach((tag) => {
+        this.handleText(tag);
+      });
     }
   }
 }

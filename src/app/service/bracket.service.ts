@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { CloneObject } from '../helper/helper';
 import { htmlTages as htmlTags } from '../helper/htmlTages';
 import { Colors } from '../model/colors';
+import { Tag } from '../model/tag';
+import { TagType } from '../model/tagType';
 
 @Injectable({
   providedIn: 'root',
@@ -40,23 +42,16 @@ export class BracketService {
     return true;
   }
 
-  formatText(text: string): string {
-    this.htmlText = CloneObject(text);
-    this.allBrackets.forEach((element) => {
-      if (
-        this.htmlText.indexOf(element) > -1 &&
-        this.openers.includes(element)
-      ) {
-        this.htmlText = this.replaceBrackets(this.htmlText, element);
-      }
-    });
-    return this.htmlText;
+  formatTag(tag: Tag, type: TagType): string {
+    return this.replaceTag(tag, type);
   }
 
-  private replaceBrackets(text: string, bracket: string) {
-    return text.split(bracket).join(this.addGreenSpan(bracket));
+  private replaceTag(tag: Tag, type: TagType) {
+    return this.addGreenSpan(tag?.FieldName, type);
   }
-  private addGreenSpan(bracket: string, color: Colors = Colors.green) {
-    return `${htmlTags.openSpanTag(this.colors[color])}${bracket}${htmlTags.closeSpan}`;
+  private addGreenSpan(fieldName: string, type: TagType) {
+    return `${htmlTags.openSpanTag(this.colors[type.color])}${fieldName}${
+      htmlTags.closeSpan
+    }`;
   }
 }

@@ -11,6 +11,6 @@ export class htmlTages {
 
   static openSpanTag(color: string) {
     const _color = color ? `color: ${color};` : '';
-    return `<span style=${_color}font-size: larger;>`;
+    return `<span style="${_color}font-size: larger;">`;
   }
 }
