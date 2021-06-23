@@ -1,6 +1,6 @@
 import { Colors } from '../model/colors';
 
-export class htmlTages {
+export class htmlTags {
   static closeSpan = `</span>`;
 
   static openBlockquote = `<blockquote>`;

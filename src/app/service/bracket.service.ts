@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CloneObject } from '../helper/helper';
-import { htmlTages as htmlTags } from '../helper/htmlTages';
+import { htmlTags } from '../helper/htmlTages';
 import { Colors } from '../model/colors';
 
 @Injectable({
@@ -63,9 +63,35 @@ export class BracketService {
     newLine = false,
     color: Colors = Colors.green
   ) {
-    const newLineBr = newLine ? '<br /> &nbsp;&nbsp;' : '';
+    const newLineBr = newLine ? '<br /> &nbsp;&nbsp;&nbsp;&nbsp;' : '';
     return `${newLineBr}${htmlTags.openSpanTag(
       this.colors[color].toString()
     )}${bracket}${htmlTags.closeSpan}${newLineBr}`;
   }
+
+  private addSpanOpenBracket(
+    bracket: string,
+    newLine = false,
+    color: Colors = Colors.green
+  ) {
+    const newLineBr = newLine ? '<br /> &nbsp;&nbsp;&nbsp;&nbsp;' : '';
+    return `${newLineBr}${htmlTags.openSpanTag(
+      this.colors[color].toString()
+    )}${bracket}${htmlTags.closeSpan}${newLineBr}`;
+  }
+
+  private addSpanCloseBracket(
+    bracket: string,
+    newLine = false,
+    color: Colors = Colors.green
+  ) {
+    const newLineBr = newLine ? '<br /> &nbsp;&nbsp;&nbsp;&nbsp;' : '';
+    return `${newLineBr}${htmlTags.openSpanTag(
+      this.colors[color].toString()
+    )}${bracket}${htmlTags.closeSpan}${newLineBr}`;
+  }
+
+
+
+
 }
