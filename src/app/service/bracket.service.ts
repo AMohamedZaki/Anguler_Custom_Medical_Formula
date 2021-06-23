@@ -58,4 +58,6 @@ export class BracketService {
   private addGreenSpan(bracket: string, color: Colors = Colors.green) {
     return `${htmlTags.openSpanTag(color)}${bracket}${htmlTags.closeSpan}`;
   }
+
+  
 }
