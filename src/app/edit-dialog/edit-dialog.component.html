@@ -1,14 +1,14 @@
 <h2 mat-dialog-title>Edit Formula</h2>
 <mat-dialog-content class="mat-typography">
   <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let tag of updatedData" cdkDrag>
+    <div class="example-box" *ngFor="let tag of updatedData; let i = index" cdkDrag>
       <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
       {{ tag.Name }}
       <button
       matTooltip="Delete"
       mat-flat-button
       style="color: red;"
-      (click)="removeTag(tag)"
+      (click)="removeTag(i)"
       aria-label="Example icon button with a menu icon"
     >
       <mat-icon>delete icon</mat-icon>

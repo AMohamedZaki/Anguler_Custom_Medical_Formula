@@ -36,7 +36,7 @@ export class EditDialogComponent implements OnInit {
     moveItemInArray(this.updatedData, event.previousIndex, event.currentIndex);
   }
 
-  removeTag(tag) {
-    this.updatedData = this.updatedData.filter(_tag => _tag.id != tag.id);
+  removeTag(index: number) {
+    this.updatedData.splice(index, 1);
   }
 }
