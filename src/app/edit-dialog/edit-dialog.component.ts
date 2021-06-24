@@ -11,32 +11,35 @@ import { Tag } from '../model/tag';
   styleUrls: ['./edit-dialog.component.scss'],
 })
 export class EditDialogComponent implements OnInit {
-  updatedData: Tag[] = [];
+  updatedData: Tag[];
 
   constructor(
     public dialogRef: MatDialogRef<EditDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { tags: Tag[]},
+    @Inject(MAT_DIALOG_DATA) public data: { tags: Tag[] },
     private _snackBar: MatSnackBar
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
+    this.updatedData = [];
     this.updatedData = CloneObject(this.data.tags);
   }
 
-  SaveFormula() {
-    this._snackBar.open('Data Saved Successfully', '', { duration: 2000 });
+  SaveFormula(): void {
+    this._snackBar.open('Data Saved Successfully', 'Close', { duration: 2000 });
     this.dialogRef.close(this.updatedData);
+    this.updatedData = [];
   }
 
-  closeDialog() {
+  closeDialog(): void {
     this.dialogRef.close();
   }
 
-  drop(event: CdkDragDrop<Tag[]>) {
+  drop(event: CdkDragDrop<Tag[]>): void {
     moveItemInArray(this.updatedData, event.previousIndex, event.currentIndex);
   }
 
-  removeTag(index: number) {
+  removeTag(index: number): void {
     this.updatedData.splice(index, 1);
   }
 }

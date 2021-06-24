@@ -24,6 +24,7 @@ export class ToolBarComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: Tag[]) => {
+      this.formulaList = result;
       this.OnFormulaSaved.emit(result);
     });
   }
