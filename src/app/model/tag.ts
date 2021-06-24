@@ -1,4 +1,3 @@
-
 export class Tag {
   Name: string;
   FieldName: string;

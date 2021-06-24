@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-4"></div>
   <div class="col-4">
-    <app-tool-bar [formulaList]="formulaList" (OnFormulaSaved)="setTextArea($event)"></app-tool-bar>
+    <app-tool-bar [(formulaList)]="formulaList" (OnFormulaSaved)="setTextArea($event)"></app-tool-bar>
   </div>
 </div>
 
@@ -21,8 +21,13 @@
       </div>
     </div>
   </div>
-
+  
   <div class="col-4">
+    <button
+      class="btn btn-primary"    
+      aria-label="Example icon button with a menu icon">
+      Load Demo
+    </button>
     <textarea
       [innerHTML]="textAreaText"
       rows="5"

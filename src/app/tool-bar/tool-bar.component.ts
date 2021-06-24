@@ -9,25 +9,29 @@ import { Tag } from '../model/tag';
   styleUrls: ['./tool-bar.component.scss'],
 })
 export class ToolBarComponent implements OnInit {
-
   @Input() formulaList: Tag[] = [];
+  @Output() formulaListChange = new EventEmitter<Tag[]>();
+
   @Output() OnFormulaSaved = new EventEmitter();
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 
   EditFormula(): void {
     const dialogRef = this.dialog.open(EditDialogComponent, {
-      data: { tags: this.formulaList}
+      data: { tags: this.formulaList },
     });
 
     dialogRef.afterClosed().subscribe((result: Tag[]) => {
-      this.formulaList = result;
-      this.OnFormulaSaved.emit(result);
+      if (result) {
+        this.updateValue(result);
+        this.OnFormulaSaved.emit(result);
+      }
     });
   }
 
+  updateValue(value: Tag[]): void {
+    this.formulaList = value;
+    this.formulaListChange.emit(value);
+  }
 }
-

@@ -46,12 +46,15 @@ export class BracketService {
     return this.replaceTag(tag, type);
   }
 
-  private replaceTag(tag: Tag, type: TagType) {
+  private replaceTag(tag: Tag, type: TagType): string {
     return this.addGreenSpan(tag?.FieldName, type);
   }
-  private addGreenSpan(fieldName: string, type: TagType) {
-    return `${htmlTags.openSpanTag(this.colors[type.color])}${fieldName}${
-      htmlTags.closeSpan
-    }`;
+  private addGreenSpan(fieldName: string, type: TagType): string {
+    if (type) {
+      return `${htmlTags.openSpanTag(this.colors[type.color])}${fieldName}${
+        htmlTags.closeSpan
+      }`;
+    }
+    return fieldName;
   }
 }

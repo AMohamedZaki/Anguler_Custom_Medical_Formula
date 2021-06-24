@@ -11,7 +11,7 @@ import { Tag } from '../model/tag';
   styleUrls: ['./edit-dialog.component.scss'],
 })
 export class EditDialogComponent implements OnInit {
-  updatedData: Tag[];
+  updatedData: Tag[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<EditDialogComponent>,
@@ -21,14 +21,12 @@ export class EditDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updatedData = [];
     this.updatedData = CloneObject(this.data.tags);
   }
 
   SaveFormula(): void {
     this._snackBar.open('Data Saved Successfully', 'Close', { duration: 2000 });
     this.dialogRef.close(this.updatedData);
-    this.updatedData = [];
   }
 
   closeDialog(): void {

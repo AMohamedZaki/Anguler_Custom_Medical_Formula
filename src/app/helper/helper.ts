@@ -1,16 +1,25 @@
 import { Colors } from '../model/colors';
 import { Tag } from '../model/tag';
-import { TagTypeEnum } from '../model/tagType';
+import { TagType, TagTypeEnum } from '../model/tagType';
 
-export function CloneObject(object: any) {
+export function CloneObject<T>(object: T): T {
   return JSON.parse(JSON.stringify(object));
 }
 
-export function IsObject(object: any) {
+export function IsObject(object: any): boolean {
   return object && Object.keys(object).length > 0;
 }
 
-export function getTypes() {
+export function IsNumber(input: any): boolean {
+  const regex = /^[0-9]+$/;
+  return regex.test(input);
+}
+
+export function RandomNumber(): number {
+  return Math.random() * 100;
+}
+
+export function getTypes(): TagType[] {
   const data = [
     { color: Colors.green, type: TagTypeEnum.clinicalMethods, id: 1 },
     { color: Colors.red, type: TagTypeEnum.condition, id: 2 },
