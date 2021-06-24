@@ -104,3 +104,14 @@ export function getTags(): Tag[] {
   ];
   return types;
 }
+
+
+
+export function LoadFormula(): string {
+  return `LRText(LRPeriod(LRPeriod(LRPeriod(likeAgeIsHigh(IsNormal(IsRequired(IsRequired(IsLow(IsFemaleIsFemaleANDAgeANDORPayer8227896((<>>)Log(10,Cos(Sin((DoctorPayerLRText(`;
+}
+
+
+
+
+

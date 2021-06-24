@@ -6,11 +6,13 @@ import {
   getTags,
   getTypes,
   IsNumber,
+  LoadFormula,
   RandomNumber,
 } from './helper/helper';
 import { Tag } from './model/tag';
 import { TagType, TagTypeEnum } from './model/tagType';
 import { BracketService } from './service/bracket.service';
+import { FormulaService } from './service/formula.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +21,7 @@ import { BracketService } from './service/bracket.service';
 })
 export class AppComponent implements OnInit {
   title = 'editor';
-  textAreaText: SafeHtml;
+  textAreaText: string;
   paragraphText: SafeHtml;
   innerParagraphText = '';
   tags: Tag[] = [];
@@ -36,7 +38,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private sanitizer: DomSanitizer,
-    private bracketService: BracketService
+    private bracketService: BracketService,
+    private formulaService: FormulaService
   ) {
     this.tags = getTags();
   }
@@ -113,5 +116,14 @@ export class AppComponent implements OnInit {
     updatedEvent.id = RandomNumber();
     updatedEvent.TypeId = TagTypeEnum.numbers;
     this.formulaList.push(updatedEvent);
+  }
+
+
+
+  loadText(): void {
+    this.textAreaText = LoadFormula();
+    this.formulaService.getTags(this.tags);
+    this.formulaList = this.formulaService.getFormulaTags(this.textAreaText) ;
+    console.log(this.formulaList);
   }
 }
