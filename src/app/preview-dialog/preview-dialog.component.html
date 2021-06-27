@@ -1,0 +1,26 @@
+<button
+  class="close-button"
+  mat-icon-button
+  color="warn"
+  mat-dialog-close
+  aria-label="Example icon button with a heart icon"
+>
+  <mat-icon>close</mat-icon>
+</button>
+
+<button
+  class="close-button"
+  mat-icon-button
+  matTooltip="Copy"
+  aria-label="Example icon button with a heart icon"
+  (click)="onCopyClick()"
+>
+  <mat-icon>filter_none</mat-icon>
+</button>
+
+
+<h2 mat-dialog-title>Preview</h2>
+
+<mat-dialog-content class="mat-typography">
+  <p class="paragraph" [innerHTML]="paragraphHTML"></p>
+</mat-dialog-content>

@@ -1,0 +1,26 @@
+.cdk-overlay-pane.my-dialog {
+  position: relative !important;
+}
+.close.mat-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  line-height: 14px;
+  min-width: auto;
+}
+
+.close-button {
+  float: right;
+  top: -24px;
+  right: -24px;
+}
+
+.paragraph {
+  padding-top: 0;
+  line-height: 3;
+  overflow: auto;
+  padding: 1.9rem;
+  padding-right: 0px;
+  overflow-wrap: break-word;
+}

@@ -37,7 +37,20 @@
           aria-label="Example icon button with a menu icon"
           (click)="EditFormula()"
         >
-          <mat-icon>person_pin</mat-icon>
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+      <div
+        class="example-button-container"
+        *ngIf="formulaList && formulaList.length > 1"
+      >
+        <button
+          matTooltip="Preview"
+          mat-flat-button
+          (click)="PreviewFormula()"
+          aria-label="Example icon button with a menu icon"
+        >
+          <mat-icon>remove_red_eye</mat-icon>
         </button>
       </div>
     </div>

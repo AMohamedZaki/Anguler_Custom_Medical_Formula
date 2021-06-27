@@ -11,9 +11,17 @@ import { BracketService } from './service/bracket.service';
 import { SafeHtml } from './pipe/safeByHtml.pipe';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { PreviewDialogComponent } from './preview-dialog/preview-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, ToolBarComponent, SafeHtml, ButtonsComponent, EditDialogComponent],
+  declarations: [
+    AppComponent,
+    ToolBarComponent,
+    SafeHtml,
+    ButtonsComponent,
+    EditDialogComponent,
+    PreviewDialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

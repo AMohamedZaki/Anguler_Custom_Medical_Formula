@@ -16,7 +16,7 @@ export class EditDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<EditDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { tags: Tag[] },
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -25,7 +25,7 @@ export class EditDialogComponent implements OnInit {
   }
 
   SaveFormula(): void {
-    this._snackBar.open('Data Saved Successfully', 'Close', { duration: 2000 });
+    this.snackBar.open('Data Saved Successfully', 'Close', { duration: 2000 });
     this.dialogRef.close(this.updatedData);
   }
 

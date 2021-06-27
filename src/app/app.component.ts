@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { SafeHtml } from '@angular/platform-browser';
 import {
   CloneObject,
   getTags,
@@ -10,9 +9,9 @@ import {
   RandomNumber,
 } from './helper/helper';
 import { Tag } from './model/tag';
-import { TagType, TagTypeEnum } from './model/tagType';
-import { BracketService } from './service/bracket.service';
+import { TagTypeEnum } from './model/tagType';
 import { FormulaService } from './service/formula.service';
+import { TagTypeService } from './service/tag-type.service';
 
 @Component({
   selector: 'app-root',
@@ -22,24 +21,20 @@ import { FormulaService } from './service/formula.service';
 export class AppComponent implements OnInit {
   title = 'editor';
   textAreaText: string;
-  paragraphText: SafeHtml;
-  innerParagraphText = '';
   tags: Tag[] = [];
   tagsByType: { id: [string]; tags: Tag[] } = {} as {
     id: [string];
     tags: Tag[];
   };
   keys: string[] = [];
-  tagTypeEnum = TagTypeEnum;
 
   formulaList: Tag[] = [];
   undoList: Tag[] = [];
   redoList: Tag[] = [];
 
   constructor(
-    private sanitizer: DomSanitizer,
-    private bracketService: BracketService,
-    private formulaService: FormulaService
+    private formulaService: FormulaService,
+    private tagTypeService: TagTypeService
   ) {
     this.tags = getTags();
   }
@@ -53,17 +48,6 @@ export class AppComponent implements OnInit {
     this.keys = Object.keys(this.tagsByType);
   }
 
-  handleText(tag: Tag): void {
-    let innerParagraphText = this.innerParagraphText
-      ? CloneObject(this.innerParagraphText)
-      : '';
-    const _type = this.getType(tag.TypeId);
-    this.innerParagraphText = innerParagraphText +=
-      this.bracketService.formatTag(tag, _type);
-    this.paragraphText =
-      this.sanitizer.bypassSecurityTrustHtml(innerParagraphText);
-  }
-
   groupByTagType(tags: Tag[]): any {
     return tags.reduce((r, a) => {
       r[a.TypeId] = r[a.TypeId] || [];
@@ -72,34 +56,18 @@ export class AppComponent implements OnInit {
     }, Object.create(null));
   }
 
-  getTypeNameById(id: number): string {
-    const type = this.getType(id)?.type;
-    return this.tagTypeEnum[type];
-  }
-
-  getType(id: number): TagType {
-    return getTypes().find((tag) => tag.id == id);
-  }
-
   AppendText(event: Tag): void {
-    const type = this.getType(event?.TypeId)?.type;
+    const type = this.tagTypeService.getType(event?.TypeId)?.type;
     if (type == TagTypeEnum.numbers) {
       this.handleNumberTag(event);
     } else {
       this.formulaList.push(event);
     }
     this.textAreaText = this.formulaList.map((it) => it.FieldName).join('');
-    this.handleText(event);
   }
 
-  setTextArea(tags: Tag[]): void {
-    if (tags && tags.length > 0) {
-      this.textAreaText = tags.map((it) => it.FieldName).join('');
-      this.innerParagraphText = '';
-      tags.forEach((tag) => {
-        this.handleText(tag);
-      });
-    }
+  getTypeNameById(id: number): string {
+    return this.tagTypeService.getTypeNameById(id);
   }
 
   handleNumberTag(event: Tag): Tag {
@@ -118,12 +86,16 @@ export class AppComponent implements OnInit {
     this.formulaList.push(updatedEvent);
   }
 
-
-
   loadText(): void {
     this.textAreaText = LoadFormula();
     this.formulaService.getTags(this.tags);
-    this.formulaList = this.formulaService.getFormulaTags(this.textAreaText) ;
-    console.log(this.formulaList);
+    this.formulaList = this.formulaService.getFormulaTags(this.textAreaText);
+  }
+
+
+  setTextArea(tags: Tag[]): void {
+    if (tags && tags.length > 0) {
+      this.textAreaText = tags.map((it) => it.FieldName).join('');
+    }
   }
 }

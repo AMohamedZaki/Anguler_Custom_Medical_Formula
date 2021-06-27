@@ -17,16 +17,23 @@ export class FormulaService {
 
   getFormulaTags(formula: string): Tag[] {
     let word = '';
+    let number = '';
     const formulaList: Tag[] = [];
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < formula.length; i++) {
       word += formula[i];
 
       if (this.formulaList && this.formulaList.length > 0) {
-        const tag = this.formulaList.find((item) => item.FieldName.toLowerCase() == word.toLowerCase());
+        const tag = this.formulaList.find(
+          (item) => item.FieldName.toLowerCase() == word.toLowerCase()
+        );
         if (IsObject(tag)) {
+          // is stored tag
           formulaList.push(tag);
           word = '';
+        }
+        // not stored tag like (service, number)
+        else if (tag) {
         }
       }
     }

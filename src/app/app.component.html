@@ -34,6 +34,7 @@
       Load Demo
     </button>
     <textarea
+      readonly
       rows="5"
       name="text_body"
       tabindex="0"
@@ -42,8 +43,6 @@
     >
     {{ textAreaText }}
     </textarea>
-
-    <p class="content" [innerHTML]="paragraphText"></p>
   </div>
   <div class="col-4"></div>
 </div>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 import { Tag } from '../model/tag';
+import { PreviewDialogComponent } from '../preview-dialog/preview-dialog.component';
 
 @Component({
   selector: 'app-tool-bar',
@@ -10,9 +11,10 @@ import { Tag } from '../model/tag';
 })
 export class ToolBarComponent implements OnInit {
   @Input() formulaList: Tag[] = [];
+  @Input() textArea: Tag[] = [];
   @Output() formulaListChange = new EventEmitter<Tag[]>();
-
   @Output() OnFormulaSaved = new EventEmitter();
+
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
@@ -27,6 +29,12 @@ export class ToolBarComponent implements OnInit {
         this.updateValue(result);
         this.OnFormulaSaved.emit(result);
       }
+    });
+  }
+
+  PreviewFormula(): void {
+    this.dialog.open(PreviewDialogComponent, {
+      data: { tags: this.formulaList },
     });
   }
 
