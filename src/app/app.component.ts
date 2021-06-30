@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
 import {
   CloneObject,
   getTags,
-  getTypes,
   IsNumber,
   LoadFormula,
   RandomNumber,
@@ -63,7 +61,9 @@ export class AppComponent implements OnInit {
     } else {
       this.formulaList.push(event);
     }
-    this.textAreaText = this.formulaList.map((it) => it.FieldName).join('');
+    this.textAreaText = this.formulaList
+      .map((it) => it.FieldName)
+      .join(' ');
   }
 
   getTypeNameById(id: number): string {
@@ -91,7 +91,6 @@ export class AppComponent implements OnInit {
     this.formulaService.getTags(this.tags);
     this.formulaList = this.formulaService.getFormulaTags(this.textAreaText);
   }
-
 
   setTextArea(tags: Tag[]): void {
     if (tags && tags.length > 0) {

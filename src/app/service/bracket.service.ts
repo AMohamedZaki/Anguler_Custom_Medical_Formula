@@ -53,7 +53,7 @@ export class BracketService {
     if (type) {
       return `${htmlTags.openSpanTag(this.colors[type.color])}${fieldName}${
         htmlTags.closeSpan
-      }`;
+      } `;
     }
     return fieldName;
   }

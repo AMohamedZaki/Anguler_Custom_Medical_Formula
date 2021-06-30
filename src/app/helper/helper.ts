@@ -101,6 +101,7 @@ export function getTags(): Tag[] {
     { FieldName: ';', Name: ';', id: 51, TypeId: 8 },
     { FieldName: '(', Name: '(', id: 52, TypeId: 8 },
     { FieldName: ')', Name: ')', id: 53, TypeId: 8 },
+    { FieldName: `'`, Name: `'`, id: 54, TypeId: 8 },
   ];
   return types;
 }
@@ -108,7 +109,7 @@ export function getTags(): Tag[] {
 
 
 export function LoadFormula(): string {
-  return `LRText(LRPeriod(LRPeriod(LRPeriod(likeAgeIsHigh(IsNormal(IsRequired(IsRequired(IsLow(IsFemaleIsFemaleANDAgeANDORPayer8227896((<>>)Log(10,Cos(Sin((Analyzer(√(,√(,√(,Abs(7<>LRPeriod(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(LowDiff(LowDiff(LowDiff(LowDiff(LRPeriod(LRPeriod(IsHigh(IsNotRequired(LRText(LRPeriod(LRPeriod(LRPeriod(likeAgeIsHigh(IsNormal(IsRequired(IsRequired(IsLow(IsFemaleIsFemaleANDAgeANDORPayer8227896((<>>)Log(10,Cos(Sin((Analyzer(√(,√(,√(,Abs(7<>LRPeriod(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(LowDiff(LowDiff(LowDiff(LowDiff(LRPeriod(LRPeriod(IsHigh(IsNotRequired(LRText(LRPeriod(LRPeriod(LRPeriod(likeAgeIsHigh(IsNormal(IsRequired(IsRequired(IsLow(IsFemaleIsFemaleANDAgeANDORPayer8227896((<>>)Log(10,Cos(Sin((Analyzer(√(,√(,√(,Abs(7<>LRPeriod(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(LowDiff(LowDiff(LowDiff(LowDiff(LRPeriod(LRPeriod(IsHigh(IsNotRequired(LRText(LRPeriod(LRPeriod(LRPeriod(likeAgeIsHigh(IsNormal(IsRequired(IsRequired(IsLow(IsFemaleIsFemaleANDAgeANDORPayer8227896((<>>)Log(10,Cos(Sin((Analyzer(√(,√(,√(,Abs(7<>LRPeriod(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(LowDiff(LowDiff(LowDiff(LowDiff(LRPeriod(LRPeriod(IsHigh(IsNotRequired(LRText(LRPeriod(LRPeriod(LRPeriod(likeAgeIsHigh(IsNormal(IsRequired(IsRequired(IsLow(IsFemaleIsFemaleANDAgeANDORPayer8227896((<>>)Log(10,Cos(Sin((Analyzer(√(,√(,√(,Abs(7<>LRPeriod(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(LowDiff(LowDiff(LowDiff(LowDiff(LRPeriod(LRPeriod(IsHigh(IsNotRequired(LRText(LRPeriod(LRPeriod(LRPeriod(likeAgeIsHigh(IsNormal(IsRequired(IsRequired(IsLow(IsFemaleIsFemaleANDAgeANDORPayer8227896((<>>)Log(10,Cos(Sin((Analyzer(√(,√(,√(,Abs(7<>LRPeriod(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(IsNormal(LowDiff(LowDiff(LowDiff(LowDiff(LRPeriod(LRPeriod(IsHigh(IsNotRequired(`;
+  return `Analyzer( LRPeriod( LRPeriod( PrepQ( IsRequired( IsLow( IsFemale IsNormal( PrepQ( LRPeriod( Analyzer( LowDiff( LRPeriod( 789932 ' 8459 ' IsLow( IsMale IsRequired( ) ) LRPeriod( LowDiff( LRPeriod(`;
 }
 
 

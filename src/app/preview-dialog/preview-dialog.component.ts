@@ -47,7 +47,7 @@ export class PreviewDialogComponent implements OnInit {
 
   onCopyClick(): void {
     const tags = this.data.tags;
-    const textAreaText = tags.map((it) => it.FieldName).join('');
+    const textAreaText = tags.map((it) => it.FieldName).join(' ');
     this.clipboard.copy(textAreaText);
     this.snackBar.open('copied to clipboard', 'Close', { duration: 2000 });
   }
