@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <app-tool-bar
+        [(formulaList)]="formulaList"
+        (OnFormulaSaved)="setTextArea($event)"
+      ></app-tool-bar>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-4">
+      <div class="card" *ngFor="let key of keys">
+        <div class="card-body">
+          <h2 class="card-title">{{ getTypeNameById(key) }}</h2>
+          <div class="example-flex-container">
+            <ng-template ngFor let-tag [ngForOf]="tagsByType[key]">
+              <app-buttons
+                (onTagClick)="AppendText($event)"
+                [tag]="tag"
+              ></app-buttons>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-6">
+      <button
+        class="btn btn-primary"
+        (click)="loadText()"
+        aria-label="Example icon button with a menu icon"
+      >
+        Load Demo
+      </button>
+      <textarea
+      readonly
+      rows="5"
+      tabindex="0"
+      translate="no"
+      name="text_body"
+      spellcheck="false"
+      style="width: 100%;"
+      >{{textAreaText}}</textarea>
+    </div>
+    <div class="col-4"></div>
+  </div>
+  

@@ -1,0 +1,30 @@
+.mat-expansion-panel-header.mat-expanded,
+.mat-expansion-panel-header.mat-expanded:hover {
+  background: #0079c1;
+}
+
+.mat-expansion-panel-header.mat-expanded,
+.mat-expansion-panel-header.mat-expanded:focus {
+  background: #00aeff;
+}
+
+.mat-expansion-panel-header.mat-focus-indicator {
+  background: #00aeff;
+}
+
+.mat-expansion-panel.mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled="true"]),
+.mat-expansion-panel
+  .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled="true"]),
+.mat-expansion-panel:not(.mat-expanded)
+  .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
+  background: #00aeff;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  line-height: normal;
+  padding-top: 7px;
+  font-weight: bold;
+  font-size: xx-large;
+}

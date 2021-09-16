@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { isEmptyBindingElement } from 'typescript';
 import { IsObject } from '../helper/helper';
 import { Tag } from '../model/tag';
 
@@ -17,7 +16,6 @@ export class FormulaService {
 
   getFormulaTags(formula: string): Tag[] {
     let word = '';
-    let number = '';
     const formulaList: Tag[] = [];
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < formula.length; i++) {
