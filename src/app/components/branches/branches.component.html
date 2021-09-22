@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-7">
+    <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
+        <mat-label>Branches</mat-label>
+        <mat-chip-list #chipList aria-label="Branch selection">
+          <mat-chip
+            *ngFor="let branch of branches"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(branch)">
+            {{branch}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input
+            placeholder="New branch..."
+            #fruitInput
+            [formControl]="branchCtrl"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option *ngFor="let branch of filteredBranches | async" [value]="branch">
+            {{branch}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      
+  </div>
+  <div class="col-3" style="padding: 22px;">
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" (change)="onChange($event)" type="checkbox" id="selectAll" value="selectAll">
+        <label class="form-check-label" for="selectAll"> Select All Branches</label>
+      </div>
+  </div>
+</div>

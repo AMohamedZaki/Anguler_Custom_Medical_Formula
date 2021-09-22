@@ -14,12 +14,14 @@ import { PreviewDialogComponent } from './preview-dialog/preview-dialog.componen
 import { TagsTestComponent } from './tags-test/tags-test.component';
 import { TagInputModule } from 'ngx-chips';
 import { FormulaComponent } from './formula/formula.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RuleMainComponent } from './components/rule-main/rule-main.component';
+import { BranchesComponent } from './components/branches/branches.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { RuleMainComponent } from './components/rule-main/rule-main.component';
     FormulaComponent,
     MainComponent,
     RuleMainComponent,
+    BranchesComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,9 @@ import { RuleMainComponent } from './components/rule-main/rule-main.component';
     FormsModule,
     MatExpansionModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatChipsModule,
+    ReactiveFormsModule,
   ],
   providers: [BracketService],
   bootstrap: [AppComponent],

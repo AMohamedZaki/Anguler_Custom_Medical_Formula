@@ -1,4 +1,4 @@
-<form action="">
+<div class="padding-top">
   <div class="row">
     <div class="col-9">
       <label for="ruleName">Rule Name</label>
@@ -12,6 +12,41 @@
         >Make Sure to Add Medical Rule Name unique</small
       >
     </div>
-    <div class="col-3"></div>
+    <div class="col-3">
+      <label for="ruleName">Medical Main Data</label>
+      <input
+        type="text"
+        class="form-control"
+        id="ruleName"
+        placeholder="Rule Name"
+      />
+    </div>
+    <div class="row" class="padding-top">
+      <div class="col">
+        <label for="helpText">Help Text</label>
+        <input
+          type="text"
+          class="form-control"
+          id="helpText"
+          placeholder="Help Text"
+        />
+      </div>
+    </div>
+    <div class="row" class="padding-top">
+      <div class="col-12">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+          <label class="form-check-label" for="inlineCheckbox2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+          <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+        </div>
+      </div>
+    </div>
   </div>
-</form>
+</div>
