@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getTypes } from '../helper/helper';
+import { getNames, getTypes } from '../helper/helper';
 import { TagType, TagTypeEnum } from '../model/tagType';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { TagType, TagTypeEnum } from '../model/tagType';
 })
 export class TagTypeService {
   tagTypeEnum = TagTypeEnum;
-
+  categoryNames = getNames();
   constructor() { }
 
 
@@ -18,6 +18,6 @@ export class TagTypeService {
 
   getTypeNameById(id: number): string {
     const type = this.getType(id)?.type;
-    return this.tagTypeEnum[type];
+    return getNames()[type];
   }
 }

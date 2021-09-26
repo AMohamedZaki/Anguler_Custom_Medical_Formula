@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Tag } from '../model/tag';
+import { Tag } from '../../../../model/tag';
 
 @Component({
   selector: 'app-buttons',

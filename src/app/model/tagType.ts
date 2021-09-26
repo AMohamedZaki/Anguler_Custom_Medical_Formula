@@ -2,23 +2,19 @@ import { Colors } from './colors';
 
 export class TagType {
   color: Colors;
-  type: TagTypeEnum;
+  type?: TagTypeEnum;
   id: number;
 
   constructor() {
     this.id = 0;
     this.color = Colors.red;
-    this.type = TagTypeEnum.condition;
+    this.type = null;
   }
 }
 
 export enum TagTypeEnum {
-  numbers,
-  mathMethods,
-  signs,
-  logicalOperators,
-  customService,
-  clinicalMethods,
-  condition,
-  loginType,
+  numbers = 1,
+  mathMethods = 2,
+  logicalOperators = 3,
+  clinicalMethods = 4
 }
