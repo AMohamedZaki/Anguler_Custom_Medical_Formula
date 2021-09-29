@@ -66,4 +66,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       display: flex;
       justify-content: center;
     }
-    
+
+    .btn-xs {
+      padding: 1px 5px;
+      font-size: 12px;
+      line-height: 1.5;
+      border-radius: 3px;
+  }
