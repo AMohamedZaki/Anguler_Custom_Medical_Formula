@@ -6,10 +6,6 @@ import { TagsTestComponent } from './tags-test/tags-test.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: MainComponent,
-  },
-  {
     path: 'tags',
     component: TagsTestComponent,
   },
@@ -17,7 +13,7 @@ const routes: Routes = [
     path: 'formula',
     component: FormulaComponent,
   },
-  { path: 'tree', loadChildren: () => import('./formual-tree/formual-tree.module').then(m => m.FormualTreeModule) },
+  { path: '', loadChildren: () => import('./formual-tree/formual-tree.module').then(m => m.FormualTreeModule) },
 ];
 
 @NgModule({
