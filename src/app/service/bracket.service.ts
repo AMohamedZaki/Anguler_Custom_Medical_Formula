@@ -11,14 +11,12 @@ import { TagType } from '../model/tagType';
 export class BracketService {
   private openers = ['{', '[', '('];
   private closers = ['}', ']', ')'];
-  private allBrackets = ['[', '(', ']', ')', '{', '}'];
   private match = {
     '}': '{',
     ']': '[',
     ')': '(',
   };
 
-  private htmlText: string;
   private colors = Colors;
   constructor() {}
 

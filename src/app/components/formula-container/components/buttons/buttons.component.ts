@@ -8,7 +8,7 @@ import { Tag } from '../../../../model/tag';
 })
 export class ButtonsComponent implements OnInit {
   @Input() tag: Tag = {} as Tag;
-  @Output('onTagClick') onTagClick = new EventEmitter();
+  @Output('onTagClick') onTagClick = new EventEmitter<Tag>();
 
   constructor() {}
 

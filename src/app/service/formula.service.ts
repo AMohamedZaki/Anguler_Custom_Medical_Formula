@@ -14,7 +14,7 @@ export class FormulaService {
     this.formulaList = tags;
   }
 
-  getFormulaTags(formula: string): Tag[] {
+  createFormulaObject(formula: string): Tag[] {
     let word = '';
     const formulaList: Tag[] = [];
     // tslint:disable-next-line:prefer-for-of

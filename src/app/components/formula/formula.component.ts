@@ -5,11 +5,11 @@ import {
   CloneObject,
   RandomNumber,
   LoadFormula,
-} from '../helper/helper';
-import { Tag } from '../model/tag';
-import { TagTypeEnum } from '../model/tagType';
-import { FormulaService } from '../service/formula.service';
-import { TagTypeService } from '../service/tag-type.service';
+} from '../../helper/helper';
+import { Tag } from '../../model/tag';
+import { TagTypeEnum } from '../../model/tagType';
+import { FormulaService } from '../../service/formula.service';
+import { TagTypeService } from '../../service/tag-type.service';
 
 @Component({
   selector: 'app-formula',
@@ -87,7 +87,7 @@ export class FormulaComponent implements OnInit {
   loadText(): void {
     this.textAreaText = LoadFormula();
     this.formulaService.getTags(this.tags);
-    this.formulaList = this.formulaService.getFormulaTags(this.textAreaText);
+    this.formulaList = this.formulaService.createFormulaObject(this.textAreaText);
   }
 
   setTextArea(tags: Tag[]): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { getTags } from 'src/app/helper/helper';
 import { Tag } from 'src/app/model/tag';
 import { TagTypeService } from 'src/app/service/tag-type.service';
@@ -21,6 +21,8 @@ export class ButtonInputsComponent implements OnInit {
   undoList: Tag[] = [];
   redoList: Tag[] = [];
   
+  @Output('onTagClick') onTagClick = new EventEmitter<Tag>();
+
   constructor(private tagTypeService: TagTypeService) { 
     this.tags = getTags();
   }
@@ -46,6 +48,12 @@ export class ButtonInputsComponent implements OnInit {
 
   getTypeNameById(id: number): string {
     return this.tagTypeService.getTypeNameById(id);
+  }
+
+
+
+  AppendText(event: Tag): void {
+    this.onTagClick.emit(event);
   }
 
 }

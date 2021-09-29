@@ -13,7 +13,7 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { PreviewDialogComponent } from './preview-dialog/preview-dialog.component';
 import { TagsTestComponent } from './tags-test/tags-test.component';
 import { TagInputModule } from 'ngx-chips';
-import { FormulaComponent } from './formula/formula.component';
+import { FormulaComponent } from './components/formula/formula.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
 import { MatExpansionModule } from '@angular/material/expansion';
