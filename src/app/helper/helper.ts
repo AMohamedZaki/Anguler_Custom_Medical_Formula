@@ -1,4 +1,5 @@
 import { Colors } from '../model/colors';
+import { Group, LogicalOperators } from '../model/group';
 import { Tag } from '../model/tag';
 import { TagType, TagTypeEnum } from '../model/tagType';
 
@@ -103,6 +104,25 @@ export function LoadFormula(): string {
 }
 
 
+export function getGroupes(): Group {
+  const group: Group =
+  {
+    id: 1,
+    operator: LogicalOperators.AND,
+    rules: [
+      {
+        id: 1,
+        operator: null,
+        tag: null,
+        value: null
+      }
+    ],
+    group: null
+  }
 
+
+
+  return group;
+}
 
 
