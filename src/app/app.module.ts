@@ -57,7 +57,7 @@ import { ButtonInputsComponent } from './components/formula-container/components
     MatIconModule,
     MatInputModule,
     MatChipsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [BracketService],
   bootstrap: [AppComponent],

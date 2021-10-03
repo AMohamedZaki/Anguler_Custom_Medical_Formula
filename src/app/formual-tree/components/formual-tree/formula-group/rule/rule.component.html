@@ -1,7 +1,15 @@
 <app-rule-header></app-rule-header>
-<div class="rule-filter-container">
-    <select class="form-control" name="builder-basic_rule_filter">
-        <option value="-1">------</option>
-        <option value="name">Name</option>
-    </select>
-</div>
+<ng-container [formGroup]="form">
+    <div class="rule-filter-container">
+        <select class="form-control" name="builder-basic_rule_filter">
+            <option value="-1">------</option>
+            <option value="name">Name</option>
+        </select>
+    </div>
+    <div class="rule-filter-container">
+        <select class="form-control" name="builder-basic_rule_filter">
+            <option value="-1">------</option>
+            <option value="name">Name</option>
+        </select>
+    </div>
+</ng-container>

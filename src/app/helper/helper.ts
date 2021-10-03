@@ -1,3 +1,4 @@
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Colors } from '../model/colors';
 import { Group, LogicalOperators } from '../model/group';
 import { Tag } from '../model/tag';
@@ -17,7 +18,7 @@ export function IsNumber(input: any): boolean {
 }
 
 export function RandomNumber(): number {
-  return Math.random() * 100;
+  return Math.trunc(Math.random() * 1000000000000000);
 }
 
 export function getTypes(): TagType[] {
@@ -89,7 +90,7 @@ export function getTags(): Tag[] {
   ];
   return types;
 }
-export function getNames(): { [key: string]: string } {
+export default function getNames(): { [key: string]: string } {
   const names = {
     [TagTypeEnum.mathMethods]: 'Mathmatical Operations',
     [TagTypeEnum.numbers]: 'Numbers',
@@ -117,12 +118,41 @@ export function getGroupes(): Group {
         value: null
       }
     ],
-    group: null
+    groups: [{
+      id: 1,
+      operator: LogicalOperators.AND,
+      rules: [
+        {
+          id: 1,
+          operator: null,
+          tag: null,
+          value: null
+        }
+      ],
+      groups: null
+    }
+    ]
   }
-
-
-
   return group;
 }
 
 
+// export function convertFormulaToGroups(formula: string): void {}
+
+export function AssginGroupsToForms(group: Group, form: FormGroup): void {
+  group.groups.forEach((item: Group) => {
+    const groupForm = new FormGroup({
+      'rules': new FormArray([]),
+    });
+    form.addControl(item.id.toString(), groupForm)
+
+    item.rules.forEach(rule => {
+      const rules = groupForm.controls['rules'] as FormArray;
+      rules.push(new FormGroup({}));
+    });
+
+    if (item.groups && item.groups.length > 0) {
+      item.groups.forEach((group) => { AssginGroupsToForms(group, form) });
+    }
+  });
+}

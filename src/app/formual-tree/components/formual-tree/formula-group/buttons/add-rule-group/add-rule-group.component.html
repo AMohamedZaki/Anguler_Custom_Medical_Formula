@@ -1,10 +1,9 @@
 <div class="btn-group right">
-    <button type="button" class="btn btn-xs btn-success" data-add="rule">
+    <button type="button" class="btn btn-xs btn-success" (click)="onAddRuleClick()" data-add="rule">
         <i class="glyphicon glyphicon-plus"></i>
         Add rule
     </button>
-    <button type="button" class="btn btn-xs btn-success" data-add="group"> <i class="glyphicon glyphicon-plus-sign"></i>
-        Add
-        group
+    <button type="button" class="btn btn-xs btn-success" (click)="onAddGroupClick()" data-add="group"> <i class="glyphicon glyphicon-plus-sign"></i>
+        Add group
     </button>
 </div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Rule } from 'src/app/model/group';
 
 @Component({
   selector: 'rule',
@@ -6,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rule.component.scss']
 })
 export class RuleComponent implements OnInit {
+  @Input()
+  rule: Rule;
 
-  constructor() { }
+  @Input()
+  form: FormGroup = {} as FormGroup;
+
+  constructor() {
+    this.rule = {} as Rule;
+  }
 
   ngOnInit(): void {
   }

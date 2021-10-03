@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { AssginGroupsToForms, getGroupes } from 'src/app/helper/helper';
+import { Group } from 'src/app/model/group';
 
 @Component({
   selector: 'app-formual-tree',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormualTreeComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+  group: Group;
+  constructor() {
+    this.form = new FormGroup({});
+    this.group = getGroupes();
+    AssginGroupsToForms(this.group, this.form);
+   }
 
   ngOnInit(): void {
+
   }
 
 }

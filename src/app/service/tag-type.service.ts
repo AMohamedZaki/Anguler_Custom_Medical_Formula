@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getNames, getTypes } from '../helper/helper';
+import getNames, { getTypes } from '../helper/helper';
 import { TagType, TagTypeEnum } from '../model/tagType';
 
 @Injectable({

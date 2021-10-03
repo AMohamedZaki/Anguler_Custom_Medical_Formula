@@ -1,3 +1,11 @@
-<div id="builder-basic" style="padding: 12px;" class="query-builder form-inline">
-    <formula-group [showParent]="true"></formula-group>
-</div>
+
+{{ group | json}}
+
+<form [formGroup]="form">
+    <div id="builder-basic" style="padding: 12px;" class="query-builder form-inline">
+        <formula-group [group]="group"></formula-group>
+    </div>
+</form>
+
+
+{{ form.value | json }}

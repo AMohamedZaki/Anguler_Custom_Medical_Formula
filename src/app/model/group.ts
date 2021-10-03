@@ -1,14 +1,17 @@
+import { RandomNumber } from "../helper/helper";
 import { Tag } from "./tag";
 
 export class Group {
     operator: LogicalOperators;
     id: number;
     rules: Rule[];
+    groups: Group[];
     constructor() {
         this.operator = LogicalOperators.AND;
         this.rules = [];
+        this.groups = [];
+        this.id = RandomNumber();
     }
-    group: Group;
 }
 
 
@@ -25,6 +28,9 @@ export class Rule {
     tag: Tag;
     operator: string;
     value: string;
+    constructor() {
+        this.id = RandomNumber();
+    }
 }
 
 export class Parameters {
