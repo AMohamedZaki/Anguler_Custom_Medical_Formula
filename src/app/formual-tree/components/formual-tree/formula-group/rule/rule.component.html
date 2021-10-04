@@ -1,15 +1,23 @@
-<app-rule-header></app-rule-header>
+<div class="rule-header">
+    <div class="btn-group right rule-actions">
+         <button type="button" class="btn btn-xs btn-danger" (click)="onDeleteClick()" data-delete="rule">
+            <i class="glyphicon glyphicon-remove"></i> Delete 
+        </button>
+    </div>
+</div>
+
 <div [formGroup]="form">
     <div class="rule-filter-container">
         <select class="form-control" name="builder-basic_rule_filter">
             <option value="-1">------</option>
-            <option value="name">Name</option>
+            <option value="name">Test</option>
+            <option value="name">Age</option>
         </select>
     </div>
     <div class="rule-filter-container">
         <select class="form-control" name="builder-basic_rule_filter">
-            <option value="-1">------</option>
-            <option value="name">Name</option>
+            <option value="name">Test</option>
+            <option value="name">Age</option>
         </select>
     </div>
 </div>

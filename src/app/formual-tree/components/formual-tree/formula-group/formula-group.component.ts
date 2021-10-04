@@ -40,6 +40,12 @@ export class FormulaGroupComponent implements OnInit {
     this.getRuleFormArray.push(this.createRuleForm());
   }
 
+  deleteRule(index: number) {
+    if (this.group.rules) { 
+      this.group.rules.splice(index, 1);
+      this.getRuleFormArray.removeAt(index);
+    }
+  }
 
   getRuleFormGroup(i: number): FormGroup {
     return this.getRuleFormArray.controls[i] as FormGroup;

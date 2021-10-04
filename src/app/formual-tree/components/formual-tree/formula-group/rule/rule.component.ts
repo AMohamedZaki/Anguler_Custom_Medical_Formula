@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Rule } from 'src/app/model/group';
 
@@ -14,6 +14,9 @@ export class RuleComponent implements OnInit {
   @Input()
   form: FormGroup = {} as FormGroup;
 
+  @Output()
+  onDelete = new EventEmitter();
+
   constructor() {
     this.rule = {} as Rule;
   }
@@ -21,4 +24,7 @@ export class RuleComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDeleteClick(): void {
+    this.onDelete.emit(null);
+  }
 }

@@ -8,7 +8,7 @@
             <ng-template [ngIf]="group.rules && group.rules.length > 0">
                 <ng-container formArrayName="rules">
                     <div id="builder-basic_rule" class="rule-container" *ngFor="let rule of group.rules; let i = index">
-                        <rule [rule]="rule" [form]="getRuleFormGroup(i)"></rule>
+                        <rule [rule]="rule" (onDelete)="deleteRule(i)" [form]="getRuleFormGroup(i)"></rule>
                     </div>
                 </ng-container>
             </ng-template>
