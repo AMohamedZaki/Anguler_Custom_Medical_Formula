@@ -18,8 +18,7 @@ export class Group {
 
 export enum LogicalOperators {
     AND = 1,
-    OR = 2,
-    NOT = 3
+    OR = 2
 }
 
 

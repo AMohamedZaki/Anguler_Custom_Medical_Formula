@@ -1,6 +1,12 @@
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-    <div class="btn-group mr-2" role="group" aria-label="First group">
-      <button type="button" class="btn btn-xs btn-primary">AND</button>
-      <button type="button" class="btn btn-xs btn-primary">OR</button>
-      <button type="button" class="btn btn-xs btn-primary">NOT</button>
+  <div class="form-check form-check-inline" *ngFor="let enum of logicalOperator | enumToArray">
+    <input class="form-check-input" formControlName="operator" type="radio" name="operator" id="inlineRadio1"
+      [value]="enum.key">
+    <label class="form-check-label" for="inlineRadio1"> {{ enum.key }}</label>
   </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineRadio1"
+      [value]="'NOT'">
+    <label class="form-check-label" for="inlineRadio1"> NOT</label>
+  </div>
+</div>

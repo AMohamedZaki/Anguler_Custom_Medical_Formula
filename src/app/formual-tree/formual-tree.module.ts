@@ -9,6 +9,8 @@ import { RuleHeaderComponent } from './components/formual-tree/formula-group/rul
 import { AndOrComponent } from './components/formual-tree/formula-group/buttons/and-or/and-or.component';
 import { FormulaGroupComponent } from './components/formual-tree/formula-group/formula-group.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EnumToArrayPipe } from '../pipe/enumToArray.pipe';
+import { ClinicalGroupTestComponent } from './components/formual-tree/formula-group/rule/controls/clinical-group-test/clinical-group-test.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AndOrComponent,
     RuleComponent,
     RuleHeaderComponent,
-    FormulaGroupComponent
+    FormulaGroupComponent,
+    EnumToArrayPipe,
+    ClinicalGroupTestComponent
   ],
   imports: [
     CommonModule,

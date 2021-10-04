@@ -26,6 +26,7 @@ import { FormulaContainerComponent } from './components/formula-container/formul
 import { FormulaInputsComponent } from './components/formula-container/components/formula-inputs/formula-inputs.component';
 import { FormulaTextAreaComponent } from './components/formula-container/components/formula-text-area/formula-text-area.component';
 import { ButtonInputsComponent } from './components/formula-container/components/button-inputs/button-inputs.component';
+import { EnumToArrayPipe } from './pipe/enumToArray.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { ButtonInputsComponent } from './components/formula-container/components
     FormulaContainerComponent,
     FormulaInputsComponent,
     FormulaTextAreaComponent,
-    ButtonInputsComponent,
+    ButtonInputsComponent
   ],
   imports: [
     BrowserModule,

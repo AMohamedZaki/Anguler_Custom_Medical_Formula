@@ -1,21 +1,25 @@
-<div class="rules-group-header">
-    <add-rule-group (onAddRule)="onAddRule($event)" (onAddGroup)="onAddGroup($event)"></add-rule-group>
-    <and-or></and-or>
-</div>
-<div class="rules-group-body">
-    <div class="rules-list">
-        <ng-template [ngIf]="group.rules && group.rules.length > 0">
-            <ng-container formArrayName="rules">
-                <div id="builder-basic_rule" class="rule-container" *ngFor="let rule of group.rules; let i = index">
-                    <rule [rule]="rule" [form]="getFormGroup(i)"></rule>
-                </div>
-            </ng-container>
-        </ng-template>
-
-        <!-- <ng-template [ngIf]="group.groups && group.groups.length > 0">
-            <div id="builder-basic_group_5" class="rules-group-container">
-                <formula-group *ngFor="let g of group.groups" [group]="g"></formula-group>
-            </div>
-        </ng-template> -->
+<form [formGroup]="form">
+    <div class="rules-group-header">
+        <add-rule-group (onAddRule)="onAddRule($event)" (onAddGroup)="onAddGroup($event)"></add-rule-group>
+        <and-or></and-or>
     </div>
-</div>
+    <div class="rules-group-body">
+        <div class="rules-list">
+            <ng-template [ngIf]="group.rules && group.rules.length > 0">
+                <ng-container formArrayName="rules">
+                    <div id="builder-basic_rule" class="rule-container" *ngFor="let rule of group.rules; let i = index">
+                        <rule [rule]="rule" [form]="getRuleFormGroup(i)"></rule>
+                    </div>
+                </ng-container>
+            </ng-template>
+
+            <ng-template [ngIf]="group.groups && group.groups.length > 0">
+                <div id="builder-basic_group_5" class="rules-group-container" formArrayName="groups">
+                    <ng-container *ngFor="let g of group.groups; let i = index">
+                        <formula-group [form]="getGroupFormGroup(i)" [group]="g"></formula-group>
+                    </ng-container>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</form>
