@@ -1,11 +1,13 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { ControlContainer, FormGroup, FormGroupDirective } from '@angular/forms';
 import { Rule } from 'src/app/model/group';
 
 @Component({
   selector: 'rule',
   templateUrl: './rule.component.html',
-  styleUrls: ['./rule.component.scss']
+  styleUrls: ['./rule.component.scss'],
+  viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }]
+
 })
 export class RuleComponent implements OnInit {
   @Input()
