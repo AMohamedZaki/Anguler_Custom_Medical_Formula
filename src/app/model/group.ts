@@ -1,4 +1,4 @@
-import { RandomNumber } from "../helper/helper";
+// import { RandomNumber } from "../helper/helper";
 import { Tag } from "./tag";
 
 export class Group {
@@ -10,7 +10,7 @@ export class Group {
         this.operator = LogicalOperators.AND;
         this.rules = [];
         this.groups = [];
-        this.id = RandomNumber();
+        this.id = Math.trunc(Math.random() * 1000000000000000);
     }
 }
 
@@ -28,7 +28,7 @@ export class Rule {
     operator: string;
     value: string;
     constructor() {
-        this.id = RandomNumber();
+        this.id = Math.trunc(Math.random() * 1000000000000000);
     }
 }
 
@@ -37,8 +37,7 @@ export class Parameters {
 }
 
 
-export class ParamType 
-{
+export class ParamType {
     required: boolean;
 
 }

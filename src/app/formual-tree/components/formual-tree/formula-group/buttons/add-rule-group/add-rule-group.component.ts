@@ -1,29 +1,41 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { ControlContainer, FormGroupDirective } from '@angular/forms';
 import { Group, LogicalOperators, Rule } from 'src/app/model/group';
 
 @Component({
   selector: 'add-rule-group',
   templateUrl: './add-rule-group.component.html',
-  styleUrls: ['./add-rule-group.component.scss']
+  styleUrls: ['./add-rule-group.component.scss'],
+  viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }],
 })
 export class AddRuleGroupComponent implements OnInit {
-  @Output()
+  @Output() 
   onAddGroup = new EventEmitter();
-  
+
   @Output()
   onAddRule = new EventEmitter();
+
+  @Output()
+  onDelete = new EventEmitter();
+
+  @Input()
+  Index?: number = null;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onAddGroupClick() {
-    this.onAddGroup.emit({ rules: [{} as Rule], operator: LogicalOperators.AND} as Group)
+  onAddGroupClick(): void {
+    this.onAddGroup.emit({ rules: [{} as Rule], operator: LogicalOperators.AND } as Group)
   }
 
-  onAddRuleClick() {
-    this.onAddRule.emit({} as Rule)
+  onAddRuleClick(): void {
+    this.onAddRule.emit({} as Rule);
   }
+
+  onDeleteClick(): void {
+    this.onDelete.emit(null);
+  }
+
 }

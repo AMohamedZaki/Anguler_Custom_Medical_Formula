@@ -1,16 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { ControlContainer, FormArray, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 import { Group, Rule } from 'src/app/model/group';
 
 @Component({
   selector: 'formula-group',
   templateUrl: './formula-group.component.html',
-  styleUrls: ['./formula-group.component.scss']
+  styleUrls: ['./formula-group.component.scss'],
+  viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }]
 })
 export class FormulaGroupComponent implements OnInit {
 
-  @Input() group: Group = {} as Group;
-  @Input() form: FormGroup = {} as FormGroup;
+  @Input()
+  group: Group = {} as Group;
+
+  @Input()
+  form: FormGroup = {} as FormGroup;
+
+  @Input()
+  index?: number = null;
+
+  @Output()
+  onDelete = new EventEmitter();
+
   get getGroupFormArray(): FormArray {
     return (this.form.get('groups') as FormArray);
   }
@@ -24,7 +35,7 @@ export class FormulaGroupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddGroup(group: Group) {
+  onAddGroup(group: Group): void {
     if (!this.group.groups) {
       this.group.groups = [];
     }
@@ -32,7 +43,7 @@ export class FormulaGroupComponent implements OnInit {
     this.getGroupFormArray.push(this.createGroupForm());
   }
 
-  onAddRule(rule: Rule) {
+  onAddRule(rule: Rule): void {
     if (!this.group.rules) {
       this.group.rules = [];
     }
@@ -40,8 +51,18 @@ export class FormulaGroupComponent implements OnInit {
     this.getRuleFormArray.push(this.createRuleForm());
   }
 
-  deleteRule(index: number) {
-    if (this.group.rules) { 
+  onDeleteGroup(): void {
+    this.onDelete.emit(null);
+  }
+
+  deleteGroup(index: number): void {
+    if (this.group.groups) {
+      this.group.groups.splice(index, 1);
+      this.getGroupFormArray.removeAt(index);
+    }
+  }
+  deleteRule(index: number): void {
+    if (this.group.rules) {
       this.group.rules.splice(index, 1);
       this.getRuleFormArray.removeAt(index);
     }
@@ -50,13 +71,13 @@ export class FormulaGroupComponent implements OnInit {
   getRuleFormGroup(i: number): FormGroup {
     return this.getRuleFormArray.controls[i] as FormGroup;
   }
-  
+
   getGroupFormGroup(i: number): FormGroup {
     return this.getGroupFormArray.controls[i] as FormGroup;
   }
 
 
-  createGroupForm(): FormGroup{
+  createGroupForm(): FormGroup {
     return new FormGroup({
       groups: new FormArray([]),
       id: new FormControl(null),
@@ -65,7 +86,7 @@ export class FormulaGroupComponent implements OnInit {
     });
   }
 
-  createRuleForm(): FormGroup{
+  createRuleForm(): FormGroup {
     return new FormGroup({
       operator: new FormControl(null),
       value: new FormControl(null),

@@ -1,12 +1,12 @@
-<div class="rule-header">
-    <div class="btn-group right rule-actions">
-         <button type="button" class="btn btn-xs btn-danger" (click)="onDeleteClick()" data-delete="rule">
-            <i class="glyphicon glyphicon-remove"></i> Delete 
-        </button>
-    </div>
-</div>
-
 <div [formGroup]="form">
+    <div class="rule-header">
+        <div class="btn-group right rule-actions">
+            <button type="button" class="btn btn-xs btn-danger" (click)="onDeleteClick()" data-delete="rule">
+                <i class="glyphicon glyphicon-remove"></i> Delete
+            </button>
+        </div>
+    </div>
+
     <div class="rule-filter-container">
         <select class="form-control" name="builder-basic_rule_filter">
             <option value="-1">------</option>
