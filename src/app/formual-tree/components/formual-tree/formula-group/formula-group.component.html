@@ -1,7 +1,7 @@
 <form [formGroup]="form">
     <div class="rules-group-header">
         <add-rule-group (onAddRule)="onAddRule($event)" [Index]="index" (onAddGroup)="onAddGroup($event)" (onDelete)="onDeleteGroup()"></add-rule-group>
-        <and-or></and-or>
+        <and-or [Index]="index"></and-or>
     </div>
     <div class="rules-group-body">
         <div class="rules-list">

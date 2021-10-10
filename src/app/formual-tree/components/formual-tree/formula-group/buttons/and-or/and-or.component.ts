@@ -10,6 +10,9 @@ import { LogicalOperators } from 'src/app/model/group';
 })
 export class AndOrComponent implements OnInit {
   logicalOperator = LogicalOperators;
+
+  @Input()
+  Index?: number = null;
   constructor() { }
 
   ngOnInit(): void {
