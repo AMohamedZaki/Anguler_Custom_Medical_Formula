@@ -11,7 +11,6 @@ import { SafeHtml } from './pipe/safeByHtml.pipe';
 import { ButtonsComponent } from './components/formula-container/components/buttons/buttons.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { PreviewDialogComponent } from './preview-dialog/preview-dialog.component';
-import { TagsTestComponent } from './tags-test/tags-test.component';
 import { TagInputModule } from 'ngx-chips';
 import { FormulaComponent } from './components/formula/formula.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +26,7 @@ import { FormulaInputsComponent } from './components/formula-container/component
 import { FormulaTextAreaComponent } from './components/formula-container/components/formula-text-area/formula-text-area.component';
 import { ButtonInputsComponent } from './components/formula-container/components/button-inputs/button-inputs.component';
 import { EnumToArrayPipe } from './pipe/enumToArray.pipe';
+import { FormualTreeModule } from './formual-tree/formual-tree.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,6 @@ import { EnumToArrayPipe } from './pipe/enumToArray.pipe';
     ButtonsComponent,
     EditDialogComponent,
     PreviewDialogComponent,
-    TagsTestComponent,
     FormulaComponent,
     MainComponent,
     RuleMainComponent,
@@ -58,7 +57,8 @@ import { EnumToArrayPipe } from './pipe/enumToArray.pipe';
     MatIconModule,
     MatInputModule,
     MatChipsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormualTreeModule
   ],
   providers: [BracketService],
   bootstrap: [AppComponent],
