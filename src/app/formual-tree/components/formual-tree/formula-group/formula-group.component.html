@@ -1,6 +1,6 @@
 <form [formGroup]="form">
     <div class="rules-group-header">
-        <add-rule-group (onAddRule)="onAddRule($event)" [Index]="index" (onAddGroup)="onAddGroup($event)" (onDelete)="onDeleteGroup()"></add-rule-group>
+        <add-rule-group [Index]="index" (onAddGroup)="onAddGroup($event)" (onDelete)="onDeleteGroup()"></add-rule-group>
         <and-or [Index]="index"></and-or>
     </div>
     <div class="rules-group-body">
@@ -8,7 +8,11 @@
             <ng-template [ngIf]="group.rules && group.rules.length > 0">
                 <ng-container formArrayName="rules">
                     <div id="builder-basic_rule" class="rule-container" *ngFor="let rule of group.rules; let i = index">
-                        <rule [rule]="rule" (onDelete)="deleteRule(i)" [form]="getRuleFormGroup(i)"></rule>
+                        <rule [rule]="rule" (onDelete)="deleteRule(i)" [form]="getRuleFormGroup(i)">
+                            <ng-container class="rule-head" *ngIf="(group.rules && (group.rules.length == ( i + 1)))">
+                                <add-rule-button (onAddRule)="onAddRule($event)"></add-rule-button>
+                            </ng-container>  
+                        </rule>
                     </div>
                 </ng-container>
             </ng-template>
@@ -16,7 +20,8 @@
             <ng-template [ngIf]="group.groups && group.groups.length > 0">
                 <div id="builder-basic_group_5" class="rules-group-container" formArrayName="groups">
                     <ng-container *ngFor="let g of group.groups; let i = index">
-                        <formula-group (onDelete)="deleteGroup(i)" [form]="getGroupFormGroup(i)" [index]="i" [group]="g"></formula-group>
+                        <formula-group (onDelete)="deleteGroup(i)" [form]="getGroupFormGroup(i)" [index]="i"
+                            [group]="g"></formula-group>
                     </ng-container>
                 </div>
             </ng-template>
