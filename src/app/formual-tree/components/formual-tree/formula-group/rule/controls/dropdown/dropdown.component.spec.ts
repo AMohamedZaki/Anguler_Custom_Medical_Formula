@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClinicalGroupTestComponent } from './clinical-group-test.component';
+import { DropdownComponent } from './dropdown.component';
 
-describe('ClinicalGroupTestComponent', () => {
-  let component: ClinicalGroupTestComponent;
-  let fixture: ComponentFixture<ClinicalGroupTestComponent>;
+describe('DropdownComponent', () => {
+  let component: DropdownComponent;
+  let fixture: ComponentFixture<DropdownComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClinicalGroupTestComponent ]
+      declarations: [ DropdownComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClinicalGroupTestComponent);
+    fixture = TestBed.createComponent(DropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

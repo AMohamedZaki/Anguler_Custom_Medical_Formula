@@ -13,7 +13,6 @@ export class TagType {
 }
 
 export enum TagTypeEnum {
-  numbers = 1,
   mathMethods = 2,
   logicalOperators = 3,
   clinicalMethods = 4

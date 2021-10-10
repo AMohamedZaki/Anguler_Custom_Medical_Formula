@@ -3,15 +3,18 @@ import { ControlContainer, FormGroupDirective } from '@angular/forms';
 import { Group, LogicalOperators, Rule } from 'src/app/model/group';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'add-rule-group',
   templateUrl: './add-rule-group.component.html',
   styleUrls: ['./add-rule-group.component.scss'],
   viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }],
 })
 export class AddRuleGroupComponent implements OnInit {
-  @Output() 
+  // tslint:disable-next-line: no-output-on-prefix
+  @Output()
   onAddGroup = new EventEmitter();
 
+  // tslint:disable-next-line: no-output-on-prefix
   @Output()
   onDelete = new EventEmitter();
 
@@ -24,7 +27,7 @@ export class AddRuleGroupComponent implements OnInit {
   }
 
   onAddGroupClick(): void {
-    this.onAddGroup.emit({ rules: [{} as Rule], operator: LogicalOperators.AND } as Group)
+    this.onAddGroup.emit({ rules: [{} as Rule], operator: LogicalOperators.AND } as Group);
   }
 
   onDeleteClick(): void {

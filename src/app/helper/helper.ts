@@ -1,4 +1,4 @@
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormGroup } from '@angular/forms';
 import { Colors } from '../model/colors';
 import { Group, LogicalOperators } from '../model/group';
 import { Tag } from '../model/tag';
@@ -23,7 +23,6 @@ export function RandomNumber(): number {
 
 export function getTypes(): TagType[] {
   const data = [
-    { color: Colors.black, type: TagTypeEnum.numbers, id: 1 },
     { color: Colors.black, type: TagTypeEnum.mathMethods, id: 2 },
     { color: Colors.black, type: TagTypeEnum.logicalOperators, id: 3 },
     { color: Colors.black, type: TagTypeEnum.clinicalMethods, id: 4 },
@@ -56,18 +55,6 @@ export function getTags(): Tag[] {
     { FieldName: '/', Name: '/', id: 49, TypeId: 2 },
     { FieldName: '^', Name: '^', id: 50, TypeId: 2 },
 
-    // numbers
-    { FieldName: '0', Name: '0', id: 30, TypeId: 1 },
-    { FieldName: '1', Name: '1', id: 31, TypeId: 1 },
-    { FieldName: '2', Name: '2', id: 32, TypeId: 1 },
-    { FieldName: '3', Name: '3', id: 33, TypeId: 1 },
-    { FieldName: '4', Name: '4', id: 34, TypeId: 1 },
-    { FieldName: '5', Name: '5', id: 35, TypeId: 1 },
-    { FieldName: '6', Name: '6', id: 36, TypeId: 1 },
-    { FieldName: '7', Name: '7', id: 37, TypeId: 1 },
-    { FieldName: '8', Name: '8', id: 38, TypeId: 1 },
-    { FieldName: '9', Name: '9', id: 39, TypeId: 1 },
-
     // logicalOperators
     { FieldName: '=', Name: '=', id: 45, TypeId: 3 },
     { FieldName: '<=', Name: '<=', id: 40, TypeId: 3 },
@@ -93,7 +80,6 @@ export function getTags(): Tag[] {
 export default function getNames(): { [key: string]: string } {
   const names = {
     [TagTypeEnum.mathMethods]: 'Mathmatical Operations',
-    [TagTypeEnum.numbers]: 'Numbers',
     [TagTypeEnum.logicalOperators]: 'Logical Operations',
     [TagTypeEnum.clinicalMethods]: 'Clinical Symbols'
   };

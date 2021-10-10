@@ -56,11 +56,11 @@ export class FormulaComponent implements OnInit {
 
   AppendText(event: Tag): void {
     const type = this.tagTypeService.getType(event?.TypeId)?.type;
-    if (type == TagTypeEnum.numbers) {
-      this.handleNumberTag(event);
-    } else {
-      this.formulaList.push(event);
-    }
+    // if (type == TagTypeEnum.numbers) {
+    //   this.handleNumberTag(event);
+    // } else {
+    this.formulaList.push(event);
+    // }
     this.textAreaText = this.formulaList.map((it) => it.FieldName).join(' ');
   }
 
@@ -80,7 +80,7 @@ export class FormulaComponent implements OnInit {
     }
     const updatedEvent = CloneObject(event) as Tag;
     updatedEvent.id = RandomNumber();
-    updatedEvent.TypeId = TagTypeEnum.numbers;
+    // updatedEvent.TypeId = TagTypeEnum.numbers;
     this.formulaList.push(updatedEvent);
   }
 

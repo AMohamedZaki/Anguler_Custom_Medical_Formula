@@ -9,11 +9,11 @@ import { AndOrComponent } from './components/formual-tree/formula-group/buttons/
 import { FormulaGroupComponent } from './components/formual-tree/formula-group/formula-group.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnumToArrayPipe } from '../pipe/enumToArray.pipe';
-import { ClinicalGroupTestComponent } from './components/formual-tree/formula-group/rule/controls/clinical-group-test/clinical-group-test.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { AddRuleButtonComponent } from './components/formual-tree/formula-group/buttons/add-rule-button/add-rule-button.component';
+import { DropdownComponent } from './components/formual-tree/formula-group/rule/controls/dropdown/dropdown.component';
 
 
 @NgModule({
@@ -24,8 +24,8 @@ import { AddRuleButtonComponent } from './components/formual-tree/formula-group/
     RuleComponent,
     FormulaGroupComponent,
     EnumToArrayPipe,
-    ClinicalGroupTestComponent,
-    AddRuleButtonComponent
+    AddRuleButtonComponent,
+    DropdownComponent
   ],
   imports: [
     CommonModule,

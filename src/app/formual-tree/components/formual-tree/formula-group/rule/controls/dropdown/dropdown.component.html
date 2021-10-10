@@ -1,0 +1,7 @@
+
+
+<select [name]="formControlName" [formControlName]="formControlName" [id]="id">
+    <option *ngFor="let item of DataSource" [value]="(FieldValue) ? item[FieldValue] : item">
+        item[FieldName]
+    </option>
+</select>
