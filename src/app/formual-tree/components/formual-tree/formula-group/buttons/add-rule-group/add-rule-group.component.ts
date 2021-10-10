@@ -13,9 +13,6 @@ export class AddRuleGroupComponent implements OnInit {
   onAddGroup = new EventEmitter();
 
   @Output()
-  onAddRule = new EventEmitter();
-
-  @Output()
   onDelete = new EventEmitter();
 
   @Input()
@@ -28,10 +25,6 @@ export class AddRuleGroupComponent implements OnInit {
 
   onAddGroupClick(): void {
     this.onAddGroup.emit({ rules: [{} as Rule], operator: LogicalOperators.AND } as Group)
-  }
-
-  onAddRuleClick(): void {
-    this.onAddRule.emit({} as Rule);
   }
 
   onDeleteClick(): void {
